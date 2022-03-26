@@ -1,0 +1,65 @@
+using System;
+
+namespace program_3 {
+	internal class Program {
+		static void Main() {
+			string shape;
+			float area;
+			float circumference;
+			do {
+				Console.Write("shape name(square, circle, triangle, rectangle): ");
+				shape = Console.ReadLine();
+			} while(shape != "square" && shape != "circle" && shape != "triangle" && shape != "rectangle");
+			Console.WriteLine("all lengths must be +ve");
+			if(shape == "square") {
+				float l;
+				do {
+					Console.Write("side length: ");
+					l = float.Parse(Console.ReadLine());
+				} while(l <= 0);
+				area = l * l;
+				circumference = 4 * l;
+				Console.Write("area = " + area + "\n" + "circumference = " + circumference);
+			}
+			else if(shape == "circle") {
+				float r;
+				do {
+					Console.Write("radius: ");
+					r = float.Parse(Console.ReadLine());
+				} while(r <= 0);
+				area = (float)3.14 * r * r;
+				circumference = 2 * (float)3.14 * r;
+				Console.Write("area = " + area + "\n" + "circumference = " + circumference);
+			}
+			else if(shape == "triangle") {
+				float l1, l2, l3, h;
+				do {
+					Console.Write("side length 1: ");
+					l1 = float.Parse(Console.ReadLine());
+					Console.Write("side length 2: ");
+					l2 = float.Parse(Console.ReadLine());
+					Console.Write("side length 3: ");
+					l3 = float.Parse(Console.ReadLine());
+					Console.Write("height on side length 1: ");
+					h = float.Parse(Console.ReadLine());
+				} while(l1 <= 0 || l2 <= 0 || l3 <= 0 || h <= 0);
+				area = (float)0.5 * l1 * h;
+				circumference = l1 + l2 + l3;
+				Console.Write("area = " + area + "\n" + "circumference = " + circumference);
+			}
+			else if(shape == "rectangle") {
+				float l, w;
+				do {
+					Console.Write("length: ");
+					l = float.Parse(Console.ReadLine());
+					Console.Write("width: ");
+					w = float.Parse(Console.ReadLine());
+				} while(l <= 0 || w <= 0);
+				area = l * w;
+				circumference = 2 * (l + w);
+				Console.Write("area = " + area + "\n" + "circumference = " + circumference);
+			}
+			Console.ReadKey();
+		}
+	}
+}
